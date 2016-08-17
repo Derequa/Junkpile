@@ -9,7 +9,7 @@
     ],
     "launchers": {
         "node": {
-            "command": "./node_modules/.bin/mocha -r chai -r blanket-R tap --recursive ./test/unit/",
+            "command": "./node_modules/.bin/mocha -r chai -r blanket -R tap --recursive ./test/unit/",
             "protocol": "tap"
         }
     }

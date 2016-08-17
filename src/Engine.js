@@ -2,7 +2,6 @@
 
 var Junkpile = require('./Junkpile');
 var Victor = require('../libs/Victor');
-//var PIXI = require('../libs/PIXI');
 var EventManager = require('./events/EventManager');
 var KeyBoard = require('./input/KeyBoard');
 var Mouse = require('./input/Mouse');
@@ -12,10 +11,6 @@ var KeyEvent = require('./events/KeyEvent');
 var KeyPressEvent = require('./events/KeyPressEvent');
 var ClickEvent = require('./events/ClickEvent');
 var MouseMoveEvent = require('./events/MouseMoveEvent');
-var User = require('./model/User');
-var Camera = require('./model/components/Camera');
-var MessageManager = require('./model/components/MessageManager');
-var Navigation = require('./model/components/Navigation');
 
 /**
  * This class provides a framework for the engine with a game-loop and setup method. It
@@ -497,109 +492,6 @@ Junkpile.Engine = class Engine{
   }
 
   /**
-   * This method removes another user's avatar from this engine instance using the user's ID.
-   *
-   * @this {Junkpile.Engine}
-   * @param {number} id                 The ID (not GUID) of the user to remove.
-   * @returns {Junkpile.User}              The user that was removed or null if the user
-   *                                    was not found.
-   */
-  removeUserAvatar(id) {
-    // Check if the user is in this engine instance
-    if (this.userObjects[id] !== undefined) {
-      // Get the user and remove them
-      var user = this.userObjects[id];
-      user.destroy();
-      this.userObjects.splice(id, 1);
-      return user;
-    }
-    else
-      return null;
-  }
-
-  /**
-   * This method adds another user's avatar to the engine.
-   *
-   * @this {Junkpile.Engine}
-   * @param {PIXI.Sprite} pixisprite    The PIXI sprite object for the user's profile image.
-   * @param {object} settings           The user's settings object.
-   * @param {string} settings.name      The name of this user.
-   * @param {number} settings.ID        The unique ID for this user in the user database.
-   * @param {string} settings.color     The color of this user's ring in hex string form.
-   * @param {number} settings.UP        The keycode this user uses for moving up.
-   * @param {number} settings.DOWN      The keycode this user uses for moving down.
-   * @param {number} settings.LEFT      The keycode this user uses for moving left.
-   * @param {number} settings.RIGHT     The keycode this user uses for moving right.
-   * @param {number} settings.speed     The max speed this user moves at. Must be between
-   *                                    Junkpile.User.MIN_V and Junkpile.User.CLOSE_MAX_V or else it
-   *                                    will be clipped.
-   * @returns {Junkpile.User}              The User object created.
-   * @see {@link http://pixijs.github.io/docs/PIXI.Sprite.html}
-   */
-  addUserAvatar(pixisprite, settings) {
-    if (this.userObjects[settings.ID] !== undefined)
-      return null;
-    // Create the user
-    var newUser = new Junkpile.User(this, null, null, pixisprite, settings);
-    // Get the created sprite object
-    var spr = newUser.getComponent(Junkpile.SpriteObject.getType());
-    // Set the sprite layer
-    spr.setLayer(Junkpile.Engine.AVATAR_LAYER);
-    // Explicitly update position before next frame
-    spr.transform.update();
-    spr.update();
-    // Create a message manager for this user avatar
-    var msgmgr = new Junkpile.components.MessageManager(this, null, newUser, null);
-    newUser.addChildComponent(msgmgr);
-    // Store user reference in the map of user with thier ID being their key
-    this.userObjects[settings.ID] = newUser;
-    return newUser;
-  }
-
-  /**
-   * This method creates the user for this engine instance.
-   *
-   * @this {Junkpile.Engine}
-   * @param {PIXI.Sprite} pixisprite    The PIXI sprite object for the user's profile image.
-   * @param {object} settings           The user's settings object.
-   * @param {string} settings.name      The name of this user.
-   * @param {number} settings.ID        The unique ID for this user in the user database.
-   * @param {string} settings.color     The color of this user's ring in hex string form.
-   * @param {number} settings.UP        The keycode this user uses for moving up.
-   * @param {number} settings.DOWN      The keycode this user uses for moving down.
-   * @param {number} settings.LEFT      The keycode this user uses for moving left.
-   * @param {number} settings.RIGHT     The keycode this user uses for moving right.
-   * @param {number} settings.speed     The max speed this user moves at. Must be between
-   *                                    Junkpile.User.MIN_V and Junkpile.User.CLOSE_MAX_V or else it
-   *                                    will be clipped.
-   * @returns {Junkpile.User}              The User object created.
-   * @see {@link http://pixijs.github.io/docs/PIXI.Sprite.html}
-   */
-  createUser(pixisprite, settings) {
-    if (this.userObjects[settings.ID] !== undefined)
-      return null;
-    // Create the user
-    var user = new Junkpile.User(this, 'user', null, pixisprite, settings);
-    // Create camera and navigation components
-    var nav = new Junkpile.components.Navigation(this, null, user);
-    var cam = new Junkpile.components.Camera(this, 'Camera', user);
-    // Attach the camera and navigation components
-    user.addChildComponent(nav);
-    user.addChildComponent(cam);
-    // Get the user's sprite and set its layer
-    var spr = user.getComponent(Junkpile.SpriteObject.getType());
-    // Set layer
-    spr.setLayer(Junkpile.Engine.USER_LAYER);
-    // Explicitly update position before next frame
-    spr.transform.update();
-    spr.update();
-
-    // Store user reference in the map of user with thier ID being their key
-    this.userObjects[settings.ID] = user;
-    return user;
-  }
-
-  /**
    * This method provides a way to load assets for users during the main loop.
    * A new PIXI loader will be created and used to load the given files.
    * The callback function is expected to handle destruction of the loader.
@@ -618,57 +510,6 @@ Junkpile.Engine = class Engine{
     loader.load(callback);
   }
 
-  /**
-   * This method set the user with the given ID to a given position.
-   *
-   * @this {Junkpile.Engine}
-   * @param {number} id                 The ID (not GUID) of the user.
-   * @param {number} x                  The X coordinate in world-space coordinates to set
-   *                                    the user to.
-   * @param {number} y                  The Y coordinate in world-space coordinates to set
-   *                                    the user to.
-   */
-  setUserAvatarPosition(id, x, y) {
-    var user = this.userObjects[id];
-    if (user == undefined)
-      return;
-    user.transform.position.x = x;
-    user.transform.position.y = y;
-    // Get the user's sprite
-    var spr = user.getComponent(Junkpile.SpriteObject.getType());
-    // Explicitly update position before next frame
-    spr.transform.update();
-    spr.update();
-  }
-
-  /**
-   * This method creates a message from a user to be displayed in the engine.
-   * This message will be added to and managed by the user's message manager.
-   *
-   * @this {Junkpile.Engine}
-   * @param {number} id                 The ID for the user to create a message for.
-   * @param {string} message            The message to send for the user.
-   */
-  createUserMessage(id, message) {
-    var user = this.userObjects[id];
-    var msgmgr = user.getComponent(Junkpile.components.MessageManager.getType());
-    msgmgr.createNewMessage(message);
-  }
-
-  /**
-   * This method gets the position of a user with the given ID.
-   *
-   * @this {Junkpile.Engine}
-   * @param {number} id               The ID (not GUID) of the user whose position to get.
-   * @returns {Victor}                A vector representing the users position.
-   * @see {@link http://victorjs.org/#documentation}
-   */
-  getUserPosition(id) {
-    var user = this.userObjects[id];
-    if (user == undefined)
-      return null;
-    return user.transform.position;
-  }
 }
 
 /**
@@ -688,68 +529,6 @@ Junkpile.Engine.instance = null;
  * @default 7
  */
 Junkpile.Engine.MAXLAYERS = 7;
-
-/**
- * The index for the layer which the background should be drawn on.
- *
- * @member {number}
- * @readonly
- * @default 0
- */
-Junkpile.Engine.BG_LAYER = 0;
-
-/**
- * The index for the layer which animations should draw on.
- *
- * @member {number}
- * @readonly
- * @default 1
- */
-Junkpile.Engine.ANIM_LAYER = 1;
-
-/**
- * The index for the layer which other users should draw on.
- *
- * @member {number}
- * @readonly
- * @default 2
- */
-Junkpile.Engine.AVATAR_LAYER = 2;
-
-/**
- * The index for the layer which this engine's user should draw on.
- * @member {number}
- * @readonly
- * @default 3
- */
-Junkpile.Engine.USER_LAYER = 3;
-
-/**
- * The index for the layer which hive sprites should draw on.
- *
- * @member {number}
- * @readonly
- * @default 4
- */
-Junkpile.Engine.HIVE_LAYER = 4;
-
-/**
- * The index for the layer which the bubbles for text sprites should draw on.
- *
- * @member {number}
- * @readonly
- * @default 5
- */
-Junkpile.Engine.BUBBLE_LAYER = 5;
-
-/**
- * The index for the layer which text sprites should draw on.
- *
- * @member {number}
- * @readonly
- * @default 6
- */
-Junkpile.Engine.TEXT_LAYER = 6;
 
 /**
  * A global flag for signaling whether the engine is in debug mode.
