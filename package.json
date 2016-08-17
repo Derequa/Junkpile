@@ -1,0 +1,47 @@
+{
+  "name": "Junkpile",
+  "version": "0.1.7",
+  "description": "A simple 2D game/UI engine, powered by PIXI",
+  "main": "main.js",
+  "bin": {
+    "Junkpile": "Junkpile.js"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        "src"
+      ],
+      "data-cover-never": [
+        "libs",
+        "test",
+        "docs",
+        "assets"
+      ]
+    }
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "dependencies": {
+    "pixi": "^0.3.1"
+  },
+  "devDependencies": {
+    "blanket": "^1.2.3",
+    "browserify": "^13.1.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "testem": "^1.10.3"
+  },
+  "scripts": {
+    "test": "testem"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [ "" ],
+      "data-cover-never": [ "node_modules", "test", "docs", "libs", "assets", "bin" ]
+    }
+  },
+  "author": "Derek Batts",
+  "license": "ISC"
+}

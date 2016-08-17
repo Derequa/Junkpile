@@ -1,0 +1,23 @@
+{
+  "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc"]
+  },
+
+  "source": {
+        "exclude": ["libs/pixi.min.js", "libs/victor.js", "libs/PixiTextInput.js"]
+  },
+
+  "templates": {
+        "cleverLinks": true,
+        "monospaceLinks": true
+  },
+
+  "opts": {
+        "destination": "./docs/",
+        "encoding": "utf8",
+        "private": true,
+        "recurse": true,
+        "projectName": "Junkpile.js Engine"
+  }
+}
