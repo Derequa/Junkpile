@@ -5,7 +5,16 @@
   },
 
   "source": {
-        "exclude": ["libs/pixi.min.js", "libs/victor.js", "libs/PixiTextInput.js"]
+        "include": [
+          "./src/"
+        ],
+        "exclude": [
+          "./libs/",
+          "./bin/",
+          "./docs/",
+          "./test/",
+          "main.js"
+        ]
   },
 
   "templates": {
