@@ -31,7 +31,7 @@
         <h2>
             <span class="ancestors"><a href="Junkpile.html">Junkpile</a>.</span>Engine</h2>
         
-            <div class="class-description">This class provides a framework for the living UI with a game-loop and setup method. Itmanages calls to the renderer, maintains layering, handle incrementing time, and containsclasses and systems for objects in the living UI to use.</div>
+            <div class="class-description">This class provides a framework for the engine with a game-loop and setup method. Itmanages calls to the renderer, maintains layering, handle incrementing time, and containsclasses and systems for objects in the engine to use.</div>
         
     
 </header>
@@ -45,14 +45,14 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="Engine"><span class="type-signature"></span>new Engine<span class="signature">(setupCallback, assets)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Engine"><span class="type-signature"></span>new Engine<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    This constructs a new instance of the Engine class and will set the global instance tothis newly created one.The assets object given must have the following fields: defaultRing, startSprite,and stopSprite. If a background field is defined, it will be used for the background of theUI. Each required field must have a value of the filename/path of the asset to be loaded.This is done so the definition of the standard asset's names is independant of the engine.After constructing the engine, the setup method should be called once before the engine is started.Then, when ready, call the start method to start the engine.
+    This constructs a new instance of the Engine class and will set the global instance tothis newly created one.
 </div>
 
 
@@ -61,196 +61,6 @@
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>setupCallback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The callback function after construction and assets are                                   loaded by the PIXI loader.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>assets</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The object defining the filenames/paths for standard                                   living UI assets.
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>background</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The background image to use (optional).</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>defaultRing</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The ring/circle image to use around User's profiles in a                                   default/blank color.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>stopSprite</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The image to use for the stop animation.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>startSprite</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The image to use for the start animation.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -293,7 +103,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line29">line 29</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line24">line 24</a>
     </li></ul></dd>
     
 
@@ -337,258 +147,186 @@
 
         
             
-<h4 class="name" id=".ANIM_LAYER"><span class="type-signature">(static, readonly) </span>ANIM_LAYER<span class="type-signature"> :number</span></h4>
+<h4 class="name" id=".DebugChannel"><span class="type-signature">(static, readonly) </span>DebugChannel<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    The index for the layer which animations should draw on.
+    A table of debug channel ID strings for easy channel identification.
 </div>
 
 
 
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">number</span>
-
-
-        </li>
-    </ul>
 
 
 
 
-
-<dl class="details">
+    <h5 class="subsection-title">Properties:</h5>
 
     
 
-    
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>1</li>
-        </ul></dd>
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line708">line 708</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
+        <th>Type</th>
 
         
-            
-<h4 class="name" id=".AVATAR_LAYER"><span class="type-signature">(static, readonly) </span>AVATAR_LAYER<span class="type-signature"> :number</span></h4>
-
-
-
-
-<div class="description">
-    The index for the layer which other users should draw on.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">number</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>2</li>
-        </ul></dd>
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line717">line 717</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
 
         
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
             
-<h4 class="name" id=".BG_LAYER"><span class="type-signature">(static, readonly) </span>BG_LAYER<span class="type-signature"> :number</span></h4>
-
-
-
-
-<div class="description">
-    The index for the layer which the background should be drawn on.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
+                <td class="name"><code>Junkpile.Engine.DebugChannel</code></td>
             
-<span class="param-type">number</span>
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
 
 
-        </li>
-    </ul>
+            
+            </td>
 
+            
 
+            
 
+            <td class="description last">
+                <h6>Properties</h6>
 
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
 
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>0</li>
-        </ul></dd>
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line699">line 699</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
+        <th>Type</th>
 
         
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
             
-<h4 class="name" id=".BUBBLE_LAYER"><span class="type-signature">(static, readonly) </span>BUBBLE_LAYER<span class="type-signature"> :number</span></h4>
-
-
-
-
-<div class="description">
-    The index for the layer which the bubbles for text sprites should draw on.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
+                <td class="name"><code>DEFAULT</code></td>
             
-<span class="param-type">number</span>
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
 
 
-        </li>
-    </ul>
+            
+            </td>
 
+            
+
+            
+
+            <td class="description last">The default channel for debug messages. This is the only channel enabled by default.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>STATE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The channel for logging state information (for users).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>INPUT</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The channel for logging input events and information.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>OBJECTS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The channel for logging general debug information for game objects.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -618,16 +356,11 @@
     
 
     
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>5</li>
-        </ul></dd>
-    
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line743">line 743</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line496">line 496</a>
     </li></ul></dd>
     
 
@@ -858,7 +591,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line776">line 776</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line496">line 496</a>
     </li></ul></dd>
     
 
@@ -930,7 +663,79 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line783">line 783</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line503">line 503</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".DebugChannelTable"><span class="type-signature">(static, readonly) </span>DebugChannelTable<span class="type-signature"> :object</span></h4>
+
+
+
+
+<div class="description">
+    A table mapping debug channel IDs to boolean values.This allows us to statically maintain debug channel states.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line503">line 503</a>
     </li></ul></dd>
     
 
@@ -1007,7 +812,84 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line760">line 760</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line480">line 480</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".debugMode"><span class="type-signature">(static) </span>debugMode<span class="type-signature"> :boolean</span></h4>
+
+
+
+
+<div class="description">
+    A global flag for signaling whether the engine is in debug mode.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>false</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line480">line 480</a>
     </li></ul></dd>
     
 
@@ -1084,7 +966,84 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line808">line 808</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line528">line 528</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".DEFAULT_HEIGHT"><span class="type-signature">(static, readonly) </span>DEFAULT_HEIGHT<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    The default height for the world.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>3112</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line528">line 528</a>
     </li></ul></dd>
     
 
@@ -1161,7 +1120,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line799">line 799</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line519">line 519</a>
     </li></ul></dd>
     
 
@@ -1179,13 +1138,13 @@
 
         
             
-<h4 class="name" id=".HIVE_LAYER"><span class="type-signature">(static, readonly) </span>HIVE_LAYER<span class="type-signature"> :number</span></h4>
+<h4 class="name" id=".DEFAULT_WIDTH"><span class="type-signature">(static, readonly) </span>DEFAULT_WIDTH<span class="type-signature"> :number</span></h4>
 
 
 
 
 <div class="description">
-    The index for the layer which hive sprites should draw on.
+    The default width for the world.
 </div>
 
 
@@ -1231,14 +1190,14 @@
     
     <dt class="tag-default">Default Value:</dt>
     <dd class="tag-default"><ul class="dummy">
-            <li>4</li>
+            <li>4096</li>
         </ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line734">line 734</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line519">line 519</a>
     </li></ul></dd>
     
 
@@ -1310,7 +1269,79 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line681">line 681</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line463">line 463</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".instance"><span class="type-signature">(static) </span>instance<span class="type-signature"> :<a href="Junkpile.Engine.html">Junkpile.Engine</a></span></h4>
+
+
+
+
+<div class="description">
+    The refernce to the current instance of the engine.This allows for easy implementation of the singleton pattern.This is updated on construction of the Engine class.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.Engine.html">Junkpile.Engine</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line463">line 463</a>
     </li></ul></dd>
     
 
@@ -1387,7 +1418,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line690">line 690</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line472">line 472</a>
     </li></ul></dd>
     
 
@@ -1405,13 +1436,13 @@
 
         
             
-<h4 class="name" id=".TEXT_LAYER"><span class="type-signature">(static, readonly) </span>TEXT_LAYER<span class="type-signature"> :number</span></h4>
+<h4 class="name" id=".MAXLAYERS"><span class="type-signature">(static, readonly) </span>MAXLAYERS<span class="type-signature"> :number</span></h4>
 
 
 
 
 <div class="description">
-    The index for the layer which text sprites should draw on.
+    The maximum number of layers allowed.
 </div>
 
 
@@ -1457,163 +1488,14 @@
     
     <dt class="tag-default">Default Value:</dt>
     <dd class="tag-default"><ul class="dummy">
-            <li>6</li>
+            <li>7</li>
         </ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line752">line 752</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".USER_LAYER"><span class="type-signature">(static, readonly) </span>USER_LAYER<span class="type-signature"> :number</span></h4>
-
-
-
-
-<div class="description">
-    The index for the layer which this engine's user should draw on.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">number</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy">
-            <li>3</li>
-        </ul></dd>
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line725">line 725</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="assets"><span class="type-signature"></span>assets<span class="type-signature"> :object</span></h4>
-
-
-
-
-<div class="description">
-    An object holding references to required assets for the enigne.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line202">line 202</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line472">line 472</a>
     </li></ul></dd>
     
 
@@ -1685,7 +1567,79 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line98">line 98</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="eventManager"><span class="type-signature"></span>eventManager<span class="type-signature"> :<a href="Junkpile.EventManager.html">Junkpile.EventManager</a></span></h4>
+
+
+
+
+<div class="description">
+    The event manager for this instance of the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.EventManager.html">Junkpile.EventManager</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line69">line 69</a>
     </li></ul></dd>
     
 
@@ -1762,7 +1716,84 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line137">line 137</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line108">line 108</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="guidCounter"><span class="type-signature"></span>guidCounter<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    This counter acts as a simple way to uniquely mark every object in the engine.Thus providing an easy way for retrieval and removal.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>0</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line108">line 108</a>
     </li></ul></dd>
     
 
@@ -1839,7 +1870,84 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line146">line 146</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line117">line 117</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="isSetup"><span class="type-signature">(private) </span>isSetup<span class="type-signature"> :boolean</span></h4>
+
+
+
+
+<div class="description">
+    A flag signifying if the engine has been setup.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>false</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line117">line 117</a>
     </li></ul></dd>
     
 
@@ -1911,7 +2019,79 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line105">line 105</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line76">line 76</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="keyboard"><span class="type-signature"></span>keyboard<span class="type-signature"> :<a href="Junkpile.input.KeyBoard.html">Junkpile.input.KeyBoard</a></span></h4>
+
+
+
+
+<div class="description">
+    The KeyBoard object for this instance of the engine.This represents keyboard input information for enigne systems to use.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.input.KeyBoard.html">Junkpile.input.KeyBoard</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line76">line 76</a>
     </li></ul></dd>
     
 
@@ -1983,7 +2163,86 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line90">line 90</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line61">line 61</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://pixijs.github.io/docs/PIXI.Container.html">http://pixijs.github.io/docs/PIXI.Container.html</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="layers"><span class="type-signature"></span>layers<span class="type-signature"> :Array.&lt;PIXI.Container></span></h4>
+
+
+
+
+<div class="description">
+    The array of containers for the different layers in the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;PIXI.Container></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line61">line 61</a>
     </li></ul></dd>
     
 
@@ -2062,7 +2321,79 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line113">line 113</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line84">line 84</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="mouse"><span class="type-signature"></span>mouse<span class="type-signature"> :<a href="Junkpile.input.Mouse.html">Junkpile.input.Mouse</a></span></h4>
+
+
+
+
+<div class="description">
+    The Mouse object for this instance of the engine.This represents mouse input information for engine systems to use.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.input.Mouse.html">Junkpile.input.Mouse</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line84">line 84</a>
     </li></ul></dd>
     
 
@@ -2134,7 +2465,79 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line67">line 67</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="objects"><span class="type-signature"></span>objects<span class="type-signature"> :Array.&lt;<a href="Junkpile.model.EngineObject.html">Junkpile.model.EngineObject</a>></span></h4>
+
+
+
+
+<div class="description">
+    All the objects in the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;<a href="Junkpile.model.EngineObject.html">Junkpile.model.EngineObject</a>></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line38">line 38</a>
     </li></ul></dd>
     
 
@@ -2206,7 +2609,86 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line121">line 121</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line92">line 92</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://pixijs.github.io/docs/PIXI.SystemRenderer.html">http://pixijs.github.io/docs/PIXI.SystemRenderer.html</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="renderer"><span class="type-signature"></span>renderer<span class="type-signature"> :PIXI.SystemRenderer</span></h4>
+
+
+
+
+<div class="description">
+    The PIXI renderer used to render the in this instance of the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">PIXI.SystemRenderer</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line92">line 92</a>
     </li></ul></dd>
     
 
@@ -2285,7 +2767,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line82">line 82</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line53">line 53</a>
     </li></ul></dd>
     
 
@@ -2310,13 +2792,13 @@
 
         
             
-<h4 class="name" id="setupCallback"><span class="type-signature"></span>setupCallback<span class="type-signature"> :function</span></h4>
+<h4 class="name" id="root"><span class="type-signature"></span>root<span class="type-signature"> :PIXI.Container</span></h4>
 
 
 
 
 <div class="description">
-    The given external setup function.
+    The root container for all the layers in the engine.
 </div>
 
 
@@ -2325,7 +2807,7 @@
     <ul>
         <li>
             
-<span class="param-type">function</span>
+<span class="param-type">PIXI.Container</span>
 
 
         </li>
@@ -2364,7 +2846,86 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line60">line 60</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line53">line 53</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://pixijs.github.io/docs/PIXI.Container.html">http://pixijs.github.io/docs/PIXI.Container.html</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="time"><span class="type-signature"></span>time<span class="type-signature"> :<a href="Junkpile.Time.html">Junkpile.Time</a></span></h4>
+
+
+
+
+<div class="description">
+    The Time object for this engine instance. Used for measuring time for physicsand input pattern detection.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.Time.html">Junkpile.Time</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line100">line 100</a>
     </li></ul></dd>
     
 
@@ -2436,7 +2997,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line129">line 129</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line100">line 100</a>
     </li></ul></dd>
     
 
@@ -2508,7 +3069,79 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line155">line 155</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line126">line 126</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="updateFunction"><span class="type-signature"></span>updateFunction<span class="type-signature"> :function</span></h4>
+
+
+
+
+<div class="description">
+    The external function to call once per frame.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line126">line 126</a>
     </li></ul></dd>
     
 
@@ -2580,7 +3213,79 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line74">line 74</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line45">line 45</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="userObjects"><span class="type-signature"></span>userObjects<span class="type-signature"> :Array.&lt;Junkpile.User></span></h4>
+
+
+
+
+<div class="description">
+    A map of all the current user objects.This is used for quickly referencing users by ID.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;Junkpile.User></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -2652,7 +3357,86 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line181">line 181</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line152">line 152</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="viewCenter"><span class="type-signature"></span>viewCenter<span class="type-signature"> :Victor</span></h4>
+
+
+
+
+<div class="description">
+    The center of the renderable area in world-space coordinates.Defaults to the center of the world-space.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Victor</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line152">line 152</a>
     </li></ul></dd>
     
 
@@ -2731,7 +3515,86 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line190">line 190</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line161">line 161</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="viewOrig"><span class="type-signature"></span>viewOrig<span class="type-signature"> :Victor</span></h4>
+
+
+
+
+<div class="description">
+    The origin x and y coordinates in world-space coordinates of the renderable area.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Victor</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line161">line 161</a>
     </li></ul></dd>
     
 
@@ -2810,7 +3673,86 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line172">line 172</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line143">line 143</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="viewSize"><span class="type-signature"></span>viewSize<span class="type-signature"> :Victor</span></h4>
+
+
+
+
+<div class="description">
+    The current size of the renderable area.Defaults to 256 x 256, but will dynamically resize with the window.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Victor</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line143">line 143</a>
     </li></ul></dd>
     
 
@@ -2889,7 +3831,86 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line162">line 162</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line133">line 133</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="worldSize"><span class="type-signature"></span>worldSize<span class="type-signature"> :Victor</span></h4>
+
+
+
+
+<div class="description">
+    The current size of the world-space.Defualts to the constants defined in: Junkpile.Engine.DEFAULT_WIDTHand Junkpile.Engine.DEFAULT_HEIGHT
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Victor</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line133">line 133</a>
     </li></ul></dd>
     
 
@@ -3046,7 +4067,161 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line445">line 445</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line381">line 381</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".debugMessage"><span class="type-signature">(static) </span>debugMessage<span class="signature">(message, channel)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method logs a message to the console if the global debug flag is enabled, and ifthe given channel is enabled. If no channel is given, the default channel will be used.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The debug message to print.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The debug channel to print the message on.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line381">line 381</a>
     </li></ul></dd>
     
 
@@ -3177,7 +4352,138 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line474">line 474</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line410">line 410</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".disableDebugChannel"><span class="type-signature">(static) </span>disableDebugChannel<span class="signature">(channel)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method disables a debug message channel. Even if debugMode is set to true, messages sentthrough this channel will be NOT printed to the console.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The string ID of the channel to disable.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line410">line 410</a>
     </li></ul></dd>
     
 
@@ -3308,7 +4614,138 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line461">line 461</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line397">line 397</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".enableDebugChannel"><span class="type-signature">(static) </span>enableDebugChannel<span class="signature">(channel)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method enables a debug message channel. If debugMode is set to true, messages sentthrough this channel will be printed to the console.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The string ID of the channel to enable.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line397">line 397</a>
     </li></ul></dd>
     
 
@@ -3390,7 +4827,89 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line415">line 415</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line351">line 351</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".gameLoop"><span class="type-signature">(static) </span>gameLoop<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method is the game-loop that updates and manages all the objects and systems in theengine, as well as calling the renderer. Frame rate-governing is handled externally.Frame-rate should be capped at 60 fps by default.NOTE: This method should NEVER be called directly.Use the start method on your instance of Junkpile.Engine.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line351">line 351</a>
     </li></ul></dd>
     
 
@@ -3567,7 +5086,213 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line386">line 386</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line322">line 322</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A vector representing the translated coordinates.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Victor</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".getViewPos"><span class="type-signature">(static) </span>getViewPos<span class="signature">(x, y, engine)</span><span class="type-signature"> &rarr; {Victor}</span></h4>
+
+    
+
+
+
+<div class="description">
+    This method gets local screen coordinates for world-space coordinates.This is used for translating world-space coordinates to screen position.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The X coordinate in world-space coordinates.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The Y coordinate in world-space coordinates.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>engine</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Junkpile.Engine.html">Junkpile.Engine</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The instance of Engine to translate for.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line322">line 322</a>
     </li></ul></dd>
     
 
@@ -3773,7 +5498,213 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line371">line 371</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line307">line 307</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A vector representing the translated coordinates.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Victor</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".getWorldPos"><span class="type-signature">(static) </span>getWorldPos<span class="signature">(x, y, engine)</span><span class="type-signature"> &rarr; {Victor}</span></h4>
+
+    
+
+
+
+<div class="description">
+    This method gets world-space coordinates for local screen coordinates.This is used for translating screen position to world-space coordinates.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The X coordinate in local screen coordinates.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The Y coordinate in local screen coordinates.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>engine</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Junkpile.Engine.html">Junkpile.Engine</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The instance of Engine to translate for.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line307">line 307</a>
     </li></ul></dd>
     
 
@@ -3956,7 +5887,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line613">line 613</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line446">line 446</a>
     </li></ul></dd>
     
 
@@ -3994,14 +5925,14 @@
 
     
 
-    <h4 class="name" id="addUserAvatar"><span class="type-signature"></span>addUserAvatar<span class="signature">(pixisprite, settings)</span><span class="type-signature"> &rarr; {Junkpile.User}</span></h4>
+    <h4 class="name" id=".loadAssets"><span class="type-signature">(static) </span>loadAssets<span class="signature">(filenames, callback)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    This method adds another user's avatar to the engine.
+    This method provides a way to load assets for users during the main loop.A new PIXI loader will be created and used to load the given files.The callback function is expected to handle destruction of the loader.Please refer to the PIXI documentation for the parameters given to the callback function.
 </div>
 
 
@@ -4009,9 +5940,6 @@
 
 
 
-
-    <h5>This:</h5>
-    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
 
 
 
@@ -4040,13 +5968,13 @@
 
         <tr>
             
-                <td class="name"><code>pixisprite</code></td>
+                <td class="name"><code>filenames</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">PIXI.Sprite</span>
+<span class="param-type">Array.&lt;string></span>
 
 
             
@@ -4056,20 +5984,20 @@
 
             
 
-            <td class="description last">The PIXI sprite object for the user's profile image.</td>
+            <td class="description last">An array with all the names/paths of the files to load.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>settings</code></td>
+                <td class="name"><code>callback</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">function</span>
 
 
             
@@ -4079,217 +6007,7 @@
 
             
 
-            <td class="description last">The user's settings object.
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The name of this user.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>ID</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The unique ID for this user in the user database.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>color</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The color of this user's ring in hex string form.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>UP</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The keycode this user uses for moving up.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>DOWN</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The keycode this user uses for moving down.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>LEFT</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The keycode this user uses for moving left.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>RIGHT</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The keycode this user uses for moving right.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>speed</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The max speed this user moves at. Must be between                                   Junkpile.User.MIN_V and Junkpile.User.CLOSE_MAX_V or else it                                   will be clipped.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last">The function to call when the assets are done loading.</td>
         </tr>
 
     
@@ -4330,7 +6048,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line539">line 539</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line446">line 446</a>
     </li></ul></dd>
     
 
@@ -4340,9 +6058,143 @@
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a href="http://pixijs.github.io/docs/PIXI.Sprite.html">http://pixijs.github.io/docs/PIXI.Sprite.html</a></li>
+            <li><a href="https://github.com/englercj/resource-loader">https://github.com/englercj/resource-loader</a></li>
         </ul>
     </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">(guid)</span><span class="type-signature"> &rarr; {<a href="Junkpile.model.EngineObject.html">Junkpile.model.EngineObject</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    This method removes an object with the given GUID from the engine's list of objects.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>guid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The GUID of the object to remove.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line424">line 424</a>
+    </li></ul></dd>
+    
+
+    
+
     
 
     
@@ -4364,7 +6216,7 @@
 
         
 <div class="param-desc">
-    The User object created.
+    The object removed, null if not found.
 </div>
 
 
@@ -4375,723 +6227,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Junkpile.User</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="createUser"><span class="type-signature"></span>createUser<span class="signature">(pixisprite, settings)</span><span class="type-signature"> &rarr; {Junkpile.User}</span></h4>
-
-    
-
-
-
-<div class="description">
-    This method creates the user for this engine instance.
-</div>
-
-
-
-
-
-
-
-    <h5>This:</h5>
-    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>pixisprite</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">PIXI.Sprite</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The PIXI sprite object for the user's profile image.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>settings</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The user's settings object.
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The name of this user.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>ID</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The unique ID for this user in the user database.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>color</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The color of this user's ring in hex string form.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>UP</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The keycode this user uses for moving up.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>DOWN</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The keycode this user uses for moving down.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>LEFT</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The keycode this user uses for moving left.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>RIGHT</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The keycode this user uses for moving right.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>speed</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The max speed this user moves at. Must be between                                   Junkpile.User.MIN_V and Junkpile.User.CLOSE_MAX_V or else it                                   will be clipped.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line578">line 578</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="http://pixijs.github.io/docs/PIXI.Sprite.html">http://pixijs.github.io/docs/PIXI.Sprite.html</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    The User object created.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Junkpile.User</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="createUserMessage"><span class="type-signature"></span>createUserMessage<span class="signature">(id, message)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    This method creates a message from a user to be displayed in the living UI.This message will be added to and managed by the user's message manager.
-</div>
-
-
-
-
-
-
-
-    <h5>This:</h5>
-    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The ID for the user to create a message for.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>message</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The message to send for the user.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line652">line 652</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="getUserPosition"><span class="type-signature"></span>getUserPosition<span class="signature">(id)</span><span class="type-signature"> &rarr; {Victor}</span></h4>
-
-    
-
-
-
-<div class="description">
-    This method gets the position of a user with the given ID.
-</div>
-
-
-
-
-
-
-
-    <h5>This:</h5>
-    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The ID (not GUID) of the user whose position to get.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line666">line 666</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    A vector representing the users position.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Victor</span>
+<span class="param-type"><a href="Junkpile.model.EngineObject.html">Junkpile.model.EngineObject</a></span>
 
 
     </dd>
@@ -5209,7 +6345,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line488">line 488</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line424">line 424</a>
     </li></ul></dd>
     
 
@@ -5248,162 +6384,6 @@
     <dd>
         
 <span class="param-type"><a href="Junkpile.model.EngineObject.html">Junkpile.model.EngineObject</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="removeUserAvatar"><span class="type-signature"></span>removeUserAvatar<span class="signature">(id)</span><span class="type-signature"> &rarr; {Junkpile.User}</span></h4>
-
-    
-
-
-
-<div class="description">
-    This method removes another user's avatar from this engine instance using the user's ID.
-</div>
-
-
-
-
-
-
-
-    <h5>This:</h5>
-    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The ID (not GUID) of the user to remove.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line507">line 507</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    The user that was removed or null if the user                                   was not found.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Junkpile.User</span>
 
 
     </dd>
@@ -5472,7 +6452,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line231">line 231</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line179">line 179</a>
     </li></ul></dd>
     
 
@@ -5503,14 +6483,14 @@
 
     
 
-    <h4 class="name" id="setUserAvatarPosition"><span class="type-signature"></span>setUserAvatarPosition<span class="signature">(id, x, y)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="setup"><span class="type-signature"></span>setup<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    This method set the user with the given ID to a given position.
+    This method sets up the engine for runtime.This should be called once before the game loop is started.All objects currently in the engine will have thier setup methods called.
 </div>
 
 
@@ -5522,101 +6502,6 @@
     <h5>This:</h5>
     <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The ID (not GUID) of the user.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The X coordinate in world-space coordinates to set                                   the user to.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>y</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The Y coordinate in world-space coordinates to set                                   the user to.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -5652,7 +6537,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line631">line 631</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line179">line 179</a>
     </li></ul></dd>
     
 
@@ -5786,7 +6671,141 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line397">line 397</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line333">line 333</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="start"><span class="type-signature"></span>start<span class="signature">(updateFunction)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method starts this instance of the engine, and will call the given external functiononce per frame.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>updateFunction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The external function to call once per frame.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line333">line 333</a>
     </li></ul></dd>
     
 
@@ -5871,7 +6890,7085 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line355">line 355</a>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line291">line 291</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="updateViewOrig"><span class="type-signature"></span>updateViewOrig<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method updates the view origin for the renderer.The view orgin is adjusted based on the current view size and view center values.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line291">line 291</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="Junkpile.html">Junkpile</a>.</span>Engine</h2>
+        
+            <div class="class-description">This class provides a framework for the engine with a game-loop and setup method. Itmanages calls to the renderer, maintains layering, handle incrementing time, and containsclasses and systems for objects in the engine to use.</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="Engine"><span class="type-signature"></span>new Engine<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This constructs a new instance of the Engine class and will set the global instance tothis newly created one.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li><a href="mailto:dsbatts@ncsu.edu">Derek Batts</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line24">line 24</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".DebugChannel"><span class="type-signature">(static, readonly) </span>DebugChannel<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    A table of debug channel ID strings for easy channel identification.
+</div>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Junkpile.Engine.DebugChannel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>DEFAULT</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The default channel for debug messages. This is the only channel enabled by default.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>STATE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The channel for logging state information (for users).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>INPUT</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The channel for logging input events and information.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>OBJECTS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The channel for logging general debug information for game objects.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line496">line 496</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".DebugChannel"><span class="type-signature">(static, readonly) </span>DebugChannel<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    A table of debug channel ID strings for easy channel identification.
+</div>
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Junkpile.Engine.DebugChannel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>DEFAULT</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The default channel for debug messages. This is the only channel enabled by default.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>STATE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The channel for logging state information (for users).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>INPUT</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The channel for logging input events and information.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>OBJECTS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The channel for logging general debug information for game objects.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line496">line 496</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".DebugChannelTable"><span class="type-signature">(static, readonly) </span>DebugChannelTable<span class="type-signature"> :object</span></h4>
+
+
+
+
+<div class="description">
+    A table mapping debug channel IDs to boolean values.This allows us to statically maintain debug channel states.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line503">line 503</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".DebugChannelTable"><span class="type-signature">(static, readonly) </span>DebugChannelTable<span class="type-signature"> :object</span></h4>
+
+
+
+
+<div class="description">
+    A table mapping debug channel IDs to boolean values.This allows us to statically maintain debug channel states.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line503">line 503</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".debugMode"><span class="type-signature">(static) </span>debugMode<span class="type-signature"> :boolean</span></h4>
+
+
+
+
+<div class="description">
+    A global flag for signaling whether the engine is in debug mode.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>false</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line480">line 480</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".debugMode"><span class="type-signature">(static) </span>debugMode<span class="type-signature"> :boolean</span></h4>
+
+
+
+
+<div class="description">
+    A global flag for signaling whether the engine is in debug mode.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>false</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line480">line 480</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".DEFAULT_HEIGHT"><span class="type-signature">(static, readonly) </span>DEFAULT_HEIGHT<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    The default height for the world.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>3112</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line528">line 528</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".DEFAULT_HEIGHT"><span class="type-signature">(static, readonly) </span>DEFAULT_HEIGHT<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    The default height for the world.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>3112</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line528">line 528</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".DEFAULT_WIDTH"><span class="type-signature">(static, readonly) </span>DEFAULT_WIDTH<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    The default width for the world.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>4096</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line519">line 519</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".DEFAULT_WIDTH"><span class="type-signature">(static, readonly) </span>DEFAULT_WIDTH<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    The default width for the world.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>4096</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line519">line 519</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".instance"><span class="type-signature">(static) </span>instance<span class="type-signature"> :<a href="Junkpile.Engine.html">Junkpile.Engine</a></span></h4>
+
+
+
+
+<div class="description">
+    The refernce to the current instance of the engine.This allows for easy implementation of the singleton pattern.This is updated on construction of the Engine class.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.Engine.html">Junkpile.Engine</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line463">line 463</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".instance"><span class="type-signature">(static) </span>instance<span class="type-signature"> :<a href="Junkpile.Engine.html">Junkpile.Engine</a></span></h4>
+
+
+
+
+<div class="description">
+    The refernce to the current instance of the engine.This allows for easy implementation of the singleton pattern.This is updated on construction of the Engine class.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.Engine.html">Junkpile.Engine</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line463">line 463</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".MAXLAYERS"><span class="type-signature">(static, readonly) </span>MAXLAYERS<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    The maximum number of layers allowed.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>7</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line472">line 472</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".MAXLAYERS"><span class="type-signature">(static, readonly) </span>MAXLAYERS<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    The maximum number of layers allowed.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>7</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line472">line 472</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="eventManager"><span class="type-signature"></span>eventManager<span class="type-signature"> :<a href="Junkpile.EventManager.html">Junkpile.EventManager</a></span></h4>
+
+
+
+
+<div class="description">
+    The event manager for this instance of the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.EventManager.html">Junkpile.EventManager</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="eventManager"><span class="type-signature"></span>eventManager<span class="type-signature"> :<a href="Junkpile.EventManager.html">Junkpile.EventManager</a></span></h4>
+
+
+
+
+<div class="description">
+    The event manager for this instance of the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.EventManager.html">Junkpile.EventManager</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="guidCounter"><span class="type-signature"></span>guidCounter<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    This counter acts as a simple way to uniquely mark every object in the engine.Thus providing an easy way for retrieval and removal.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>0</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line108">line 108</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="guidCounter"><span class="type-signature"></span>guidCounter<span class="type-signature"> :number</span></h4>
+
+
+
+
+<div class="description">
+    This counter acts as a simple way to uniquely mark every object in the engine.Thus providing an easy way for retrieval and removal.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>0</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line108">line 108</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="isSetup"><span class="type-signature">(private) </span>isSetup<span class="type-signature"> :boolean</span></h4>
+
+
+
+
+<div class="description">
+    A flag signifying if the engine has been setup.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>false</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line117">line 117</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="isSetup"><span class="type-signature">(private) </span>isSetup<span class="type-signature"> :boolean</span></h4>
+
+
+
+
+<div class="description">
+    A flag signifying if the engine has been setup.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>false</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line117">line 117</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="keyboard"><span class="type-signature"></span>keyboard<span class="type-signature"> :<a href="Junkpile.input.KeyBoard.html">Junkpile.input.KeyBoard</a></span></h4>
+
+
+
+
+<div class="description">
+    The KeyBoard object for this instance of the engine.This represents keyboard input information for enigne systems to use.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.input.KeyBoard.html">Junkpile.input.KeyBoard</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line76">line 76</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="keyboard"><span class="type-signature"></span>keyboard<span class="type-signature"> :<a href="Junkpile.input.KeyBoard.html">Junkpile.input.KeyBoard</a></span></h4>
+
+
+
+
+<div class="description">
+    The KeyBoard object for this instance of the engine.This represents keyboard input information for enigne systems to use.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.input.KeyBoard.html">Junkpile.input.KeyBoard</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line76">line 76</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="layers"><span class="type-signature"></span>layers<span class="type-signature"> :Array.&lt;PIXI.Container></span></h4>
+
+
+
+
+<div class="description">
+    The array of containers for the different layers in the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;PIXI.Container></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line61">line 61</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://pixijs.github.io/docs/PIXI.Container.html">http://pixijs.github.io/docs/PIXI.Container.html</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="layers"><span class="type-signature"></span>layers<span class="type-signature"> :Array.&lt;PIXI.Container></span></h4>
+
+
+
+
+<div class="description">
+    The array of containers for the different layers in the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;PIXI.Container></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line61">line 61</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://pixijs.github.io/docs/PIXI.Container.html">http://pixijs.github.io/docs/PIXI.Container.html</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="mouse"><span class="type-signature"></span>mouse<span class="type-signature"> :<a href="Junkpile.input.Mouse.html">Junkpile.input.Mouse</a></span></h4>
+
+
+
+
+<div class="description">
+    The Mouse object for this instance of the engine.This represents mouse input information for engine systems to use.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.input.Mouse.html">Junkpile.input.Mouse</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line84">line 84</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="mouse"><span class="type-signature"></span>mouse<span class="type-signature"> :<a href="Junkpile.input.Mouse.html">Junkpile.input.Mouse</a></span></h4>
+
+
+
+
+<div class="description">
+    The Mouse object for this instance of the engine.This represents mouse input information for engine systems to use.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.input.Mouse.html">Junkpile.input.Mouse</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line84">line 84</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="objects"><span class="type-signature"></span>objects<span class="type-signature"> :Array.&lt;<a href="Junkpile.model.EngineObject.html">Junkpile.model.EngineObject</a>></span></h4>
+
+
+
+
+<div class="description">
+    All the objects in the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;<a href="Junkpile.model.EngineObject.html">Junkpile.model.EngineObject</a>></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="objects"><span class="type-signature"></span>objects<span class="type-signature"> :Array.&lt;<a href="Junkpile.model.EngineObject.html">Junkpile.model.EngineObject</a>></span></h4>
+
+
+
+
+<div class="description">
+    All the objects in the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;<a href="Junkpile.model.EngineObject.html">Junkpile.model.EngineObject</a>></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line38">line 38</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="renderer"><span class="type-signature"></span>renderer<span class="type-signature"> :PIXI.SystemRenderer</span></h4>
+
+
+
+
+<div class="description">
+    The PIXI renderer used to render the in this instance of the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">PIXI.SystemRenderer</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line92">line 92</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://pixijs.github.io/docs/PIXI.SystemRenderer.html">http://pixijs.github.io/docs/PIXI.SystemRenderer.html</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="renderer"><span class="type-signature"></span>renderer<span class="type-signature"> :PIXI.SystemRenderer</span></h4>
+
+
+
+
+<div class="description">
+    The PIXI renderer used to render the in this instance of the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">PIXI.SystemRenderer</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line92">line 92</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://pixijs.github.io/docs/PIXI.SystemRenderer.html">http://pixijs.github.io/docs/PIXI.SystemRenderer.html</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="root"><span class="type-signature"></span>root<span class="type-signature"> :PIXI.Container</span></h4>
+
+
+
+
+<div class="description">
+    The root container for all the layers in the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">PIXI.Container</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line53">line 53</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://pixijs.github.io/docs/PIXI.Container.html">http://pixijs.github.io/docs/PIXI.Container.html</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="root"><span class="type-signature"></span>root<span class="type-signature"> :PIXI.Container</span></h4>
+
+
+
+
+<div class="description">
+    The root container for all the layers in the engine.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">PIXI.Container</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line53">line 53</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://pixijs.github.io/docs/PIXI.Container.html">http://pixijs.github.io/docs/PIXI.Container.html</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="time"><span class="type-signature"></span>time<span class="type-signature"> :<a href="Junkpile.Time.html">Junkpile.Time</a></span></h4>
+
+
+
+
+<div class="description">
+    The Time object for this engine instance. Used for measuring time for physicsand input pattern detection.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.Time.html">Junkpile.Time</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line100">line 100</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="time"><span class="type-signature"></span>time<span class="type-signature"> :<a href="Junkpile.Time.html">Junkpile.Time</a></span></h4>
+
+
+
+
+<div class="description">
+    The Time object for this engine instance. Used for measuring time for physicsand input pattern detection.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Junkpile.Time.html">Junkpile.Time</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line100">line 100</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="updateFunction"><span class="type-signature"></span>updateFunction<span class="type-signature"> :function</span></h4>
+
+
+
+
+<div class="description">
+    The external function to call once per frame.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line126">line 126</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="updateFunction"><span class="type-signature"></span>updateFunction<span class="type-signature"> :function</span></h4>
+
+
+
+
+<div class="description">
+    The external function to call once per frame.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line126">line 126</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="userObjects"><span class="type-signature"></span>userObjects<span class="type-signature"> :Array.&lt;Junkpile.User></span></h4>
+
+
+
+
+<div class="description">
+    A map of all the current user objects.This is used for quickly referencing users by ID.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;Junkpile.User></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line45">line 45</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="userObjects"><span class="type-signature"></span>userObjects<span class="type-signature"> :Array.&lt;Junkpile.User></span></h4>
+
+
+
+
+<div class="description">
+    A map of all the current user objects.This is used for quickly referencing users by ID.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;Junkpile.User></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line45">line 45</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="viewCenter"><span class="type-signature"></span>viewCenter<span class="type-signature"> :Victor</span></h4>
+
+
+
+
+<div class="description">
+    The center of the renderable area in world-space coordinates.Defaults to the center of the world-space.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Victor</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line152">line 152</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="viewCenter"><span class="type-signature"></span>viewCenter<span class="type-signature"> :Victor</span></h4>
+
+
+
+
+<div class="description">
+    The center of the renderable area in world-space coordinates.Defaults to the center of the world-space.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Victor</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line152">line 152</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="viewOrig"><span class="type-signature"></span>viewOrig<span class="type-signature"> :Victor</span></h4>
+
+
+
+
+<div class="description">
+    The origin x and y coordinates in world-space coordinates of the renderable area.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Victor</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line161">line 161</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="viewOrig"><span class="type-signature"></span>viewOrig<span class="type-signature"> :Victor</span></h4>
+
+
+
+
+<div class="description">
+    The origin x and y coordinates in world-space coordinates of the renderable area.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Victor</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line161">line 161</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="viewSize"><span class="type-signature"></span>viewSize<span class="type-signature"> :Victor</span></h4>
+
+
+
+
+<div class="description">
+    The current size of the renderable area.Defaults to 256 x 256, but will dynamically resize with the window.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Victor</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line143">line 143</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="viewSize"><span class="type-signature"></span>viewSize<span class="type-signature"> :Victor</span></h4>
+
+
+
+
+<div class="description">
+    The current size of the renderable area.Defaults to 256 x 256, but will dynamically resize with the window.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Victor</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line143">line 143</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="worldSize"><span class="type-signature"></span>worldSize<span class="type-signature"> :Victor</span></h4>
+
+
+
+
+<div class="description">
+    The current size of the world-space.Defualts to the constants defined in: Junkpile.Engine.DEFAULT_WIDTHand Junkpile.Engine.DEFAULT_HEIGHT
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Victor</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line133">line 133</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="worldSize"><span class="type-signature"></span>worldSize<span class="type-signature"> :Victor</span></h4>
+
+
+
+
+<div class="description">
+    The current size of the world-space.Defualts to the constants defined in: Junkpile.Engine.DEFAULT_WIDTHand Junkpile.Engine.DEFAULT_HEIGHT
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Victor</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line133">line 133</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".debugMessage"><span class="type-signature">(static) </span>debugMessage<span class="signature">(message, channel)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method logs a message to the console if the global debug flag is enabled, and ifthe given channel is enabled. If no channel is given, the default channel will be used.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The debug message to print.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The debug channel to print the message on.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line381">line 381</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".debugMessage"><span class="type-signature">(static) </span>debugMessage<span class="signature">(message, channel)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method logs a message to the console if the global debug flag is enabled, and ifthe given channel is enabled. If no channel is given, the default channel will be used.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The debug message to print.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The debug channel to print the message on.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line381">line 381</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".disableDebugChannel"><span class="type-signature">(static) </span>disableDebugChannel<span class="signature">(channel)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method disables a debug message channel. Even if debugMode is set to true, messages sentthrough this channel will be NOT printed to the console.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The string ID of the channel to disable.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line410">line 410</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".disableDebugChannel"><span class="type-signature">(static) </span>disableDebugChannel<span class="signature">(channel)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method disables a debug message channel. Even if debugMode is set to true, messages sentthrough this channel will be NOT printed to the console.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The string ID of the channel to disable.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line410">line 410</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".enableDebugChannel"><span class="type-signature">(static) </span>enableDebugChannel<span class="signature">(channel)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method enables a debug message channel. If debugMode is set to true, messages sentthrough this channel will be printed to the console.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The string ID of the channel to enable.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line397">line 397</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".enableDebugChannel"><span class="type-signature">(static) </span>enableDebugChannel<span class="signature">(channel)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method enables a debug message channel. If debugMode is set to true, messages sentthrough this channel will be printed to the console.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channel</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The string ID of the channel to enable.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line397">line 397</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".gameLoop"><span class="type-signature">(static) </span>gameLoop<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method is the game-loop that updates and manages all the objects and systems in theengine, as well as calling the renderer. Frame rate-governing is handled externally.Frame-rate should be capped at 60 fps by default.NOTE: This method should NEVER be called directly.Use the start method on your instance of Junkpile.Engine.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line351">line 351</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".gameLoop"><span class="type-signature">(static) </span>gameLoop<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method is the game-loop that updates and manages all the objects and systems in theengine, as well as calling the renderer. Frame rate-governing is handled externally.Frame-rate should be capped at 60 fps by default.NOTE: This method should NEVER be called directly.Use the start method on your instance of Junkpile.Engine.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line351">line 351</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".getViewPos"><span class="type-signature">(static) </span>getViewPos<span class="signature">(x, y, engine)</span><span class="type-signature"> &rarr; {Victor}</span></h4>
+
+    
+
+
+
+<div class="description">
+    This method gets local screen coordinates for world-space coordinates.This is used for translating world-space coordinates to screen position.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The X coordinate in world-space coordinates.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The Y coordinate in world-space coordinates.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>engine</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Junkpile.Engine.html">Junkpile.Engine</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The instance of Engine to translate for.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line322">line 322</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A vector representing the translated coordinates.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Victor</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".getViewPos"><span class="type-signature">(static) </span>getViewPos<span class="signature">(x, y, engine)</span><span class="type-signature"> &rarr; {Victor}</span></h4>
+
+    
+
+
+
+<div class="description">
+    This method gets local screen coordinates for world-space coordinates.This is used for translating world-space coordinates to screen position.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The X coordinate in world-space coordinates.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The Y coordinate in world-space coordinates.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>engine</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Junkpile.Engine.html">Junkpile.Engine</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The instance of Engine to translate for.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line322">line 322</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A vector representing the translated coordinates.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Victor</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".getWorldPos"><span class="type-signature">(static) </span>getWorldPos<span class="signature">(x, y, engine)</span><span class="type-signature"> &rarr; {Victor}</span></h4>
+
+    
+
+
+
+<div class="description">
+    This method gets world-space coordinates for local screen coordinates.This is used for translating screen position to world-space coordinates.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The X coordinate in local screen coordinates.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The Y coordinate in local screen coordinates.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>engine</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Junkpile.Engine.html">Junkpile.Engine</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The instance of Engine to translate for.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line307">line 307</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A vector representing the translated coordinates.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Victor</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".getWorldPos"><span class="type-signature">(static) </span>getWorldPos<span class="signature">(x, y, engine)</span><span class="type-signature"> &rarr; {Victor}</span></h4>
+
+    
+
+
+
+<div class="description">
+    This method gets world-space coordinates for local screen coordinates.This is used for translating screen position to world-space coordinates.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The X coordinate in local screen coordinates.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The Y coordinate in local screen coordinates.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>engine</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Junkpile.Engine.html">Junkpile.Engine</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The instance of Engine to translate for.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line307">line 307</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://victorjs.org/#documentation">http://victorjs.org/#documentation</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A vector representing the translated coordinates.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Victor</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".loadAssets"><span class="type-signature">(static) </span>loadAssets<span class="signature">(filenames, callback)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method provides a way to load assets for users during the main loop.A new PIXI loader will be created and used to load the given files.The callback function is expected to handle destruction of the loader.Please refer to the PIXI documentation for the parameters given to the callback function.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>filenames</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An array with all the names/paths of the files to load.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The function to call when the assets are done loading.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line446">line 446</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://github.com/englercj/resource-loader">https://github.com/englercj/resource-loader</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".loadAssets"><span class="type-signature">(static) </span>loadAssets<span class="signature">(filenames, callback)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method provides a way to load assets for users during the main loop.A new PIXI loader will be created and used to load the given files.The callback function is expected to handle destruction of the loader.Please refer to the PIXI documentation for the parameters given to the callback function.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>filenames</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An array with all the names/paths of the files to load.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The function to call when the assets are done loading.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line446">line 446</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://github.com/englercj/resource-loader">https://github.com/englercj/resource-loader</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">(guid)</span><span class="type-signature"> &rarr; {<a href="Junkpile.model.EngineObject.html">Junkpile.model.EngineObject</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    This method removes an object with the given GUID from the engine's list of objects.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>guid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The GUID of the object to remove.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line424">line 424</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The object removed, null if not found.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Junkpile.model.EngineObject.html">Junkpile.model.EngineObject</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">(guid)</span><span class="type-signature"> &rarr; {<a href="Junkpile.model.EngineObject.html">Junkpile.model.EngineObject</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    This method removes an object with the given GUID from the engine's list of objects.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>guid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The GUID of the object to remove.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line424">line 424</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The object removed, null if not found.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Junkpile.model.EngineObject.html">Junkpile.model.EngineObject</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="setup"><span class="type-signature"></span>setup<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method sets up the engine for runtime.This should be called once before the game loop is started.All objects currently in the engine will have thier setup methods called.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line179">line 179</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="setup"><span class="type-signature"></span>setup<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method sets up the engine for runtime.This should be called once before the game loop is started.All objects currently in the engine will have thier setup methods called.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line179">line 179</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="start"><span class="type-signature"></span>start<span class="signature">(updateFunction)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method starts this instance of the engine, and will call the given external functiononce per frame.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>updateFunction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The external function to call once per frame.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line333">line 333</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="start"><span class="type-signature"></span>start<span class="signature">(updateFunction)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method starts this instance of the engine, and will call the given external functiononce per frame.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>updateFunction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The external function to call once per frame.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line333">line 333</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="updateViewOrig"><span class="type-signature"></span>updateViewOrig<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method updates the view origin for the renderer.The view orgin is adjusted based on the current view size and view center values.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line291">line 291</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="updateViewOrig"><span class="type-signature"></span>updateViewOrig<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    This method updates the view origin for the renderer.The view orgin is adjusted based on the current view size and view center values.
+</div>
+
+
+
+
+
+
+
+    <h5>This:</h5>
+    <ul><li>{<a href="Junkpile.Engine.html">Junkpile.Engine</a>}</li></ul>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Engine.js.html">Engine.js</a>, <a href="Engine.js.html#line291">line 291</a>
     </li></ul></dd>
     
 
@@ -5919,7 +14016,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Aug 17 2016 10:12:03 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Aug 21 2016 07:54:35 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>
