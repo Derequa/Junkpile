@@ -27,37 +27,13 @@ Junkpile.Engine = class Engine{
    * This constructs a new instance of the Engine class and will set the global instance to
    * this newly created one.
    *
-   * The assets object given must have the following fields: defaultRing, startSprite,
-   * and stopSprite. If a background field is defined, it will be used for the background of the
-   * UI. Each required field must have a value of the filename/path of the asset to be loaded.
-   * This is done so the definition of the standard asset's names is independant of the engine.
-   *
-   * After constructing the engine, the setup method should be called once before the engine is started.
-   * Then, when ready, call the start method to start the engine.
-   *
    * @constructs Junkpile.Engine
    * @this {Junkpile.Engine}
-   * @param {function} setupCallback    The callback function after construction and assets are
-   *                                    loaded by the PIXI loader.
-   * @param {object} assets             The object defining the filenames/paths for standard
-   *                                    engine assets.
-   * @param {string} assets.background  The background image to use (optional).
-   * @param {string} assets.defaultRing The ring/circle image to use around User's profiles in a
-   *                                    default/blank color.
-   * @param {string} assets.stopSprite  The image to use for the stop animation.
-   * @param {string} assets.startSprite The image to use for the start animation.
    */
-  constructor(setupCallback, assets) {
+  constructor() {
 
     if (Junkpile.Engine.instance)
       throw new Error('An engine instance has already been created!');
-
-    /**
-     * The given external setup function.
-     *
-     * @member {function} Junkpile.Engine#setupCallback
-     */
-    this.setupCallback = setupCallback;
 
     /**
      * All the objects in the engine.
@@ -190,30 +166,7 @@ Junkpile.Engine = class Engine{
      */
     this.viewOrig = new Victor(this.viewCenter.x - (this.viewSize.x / 2), this.viewCenter.y - (this.viewSize.y / 2));
 
-    // Check for required assets
-    if(!assets.defaultRing || !assets.stopSprite || !assets.startSprite)
-      throw new Error('Critical assets are undefined!');
-
-    /**
-     * An object holding references to required assets for the enigne.
-     *
-     * @member {object} Junkpile.Engine#assets
-     */
-    this.assets = assets;
-
     Junkpile.Engine.instance = this;
-
-    // Load assets with the PIXI loader
-    PIXI.loader
-        .add(this.assets.defaultRing)
-        .add(this.assets.startSprite)
-        .add(this.assets.stopSprite)
-
-    // Check for the background asset and load it if present
-    if(this.assets.background)
-      PIXI.loader.add(this.assets.background);
-    // Call external setup
-    PIXI.loader.load(this.setupCallback);
   }
 
   /**
@@ -247,18 +200,6 @@ Junkpile.Engine = class Engine{
     _this.renderer.view.style.display = 'block';
     _this.renderer.autoResize = true;
     _this.renderer.resize(window.innerWidth, window.innerHeight);
-
-    // Check if the background asset was given
-    if(_this.assets.background){
-      // Create a sprite for the background
-      var bgImage = new PIXI.Sprite.fromImage(_this.assets.background);
-      var bgObj = new Junkpile.SpriteObject(_this, 'Background', null, bgImage, Junkpile.Engine.BG_LAYER);
-      // Place it at the center of the world
-      bgObj.transform.position.x = _this.worldSize.x / 2;
-      bgObj.transform.position.y = _this.worldSize.y / 2;
-      bgObj.transform.scale.x = _this.worldSize.x / bgImage.width;
-      bgObj.transform.scale.y = _this.worldSize.y / bgImage.height;
-    }
 
     // Add callbacks for document events
     // All callbacks should feed into the event manager
