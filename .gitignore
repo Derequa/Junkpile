@@ -1,0 +1,10 @@
+# temporary files
+.DS_Store
+Thumbs.db
+Desktop.ini
+npm-debug.log
+
+# stuff git doesn't need to see
+docs/
+node_modules/
+temp/
